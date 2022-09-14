@@ -35,16 +35,16 @@
   
   <h2 id='galeria'>🖼 Galeria</h2>
   <p>Rota Avatar - Index</p>
-  <img src="./github/galeria1.jpg" alt="galeria1" />
+  <img src="./github/galeria1.JPG" alt="galeria1" />
   
   <p>Rota Users - Index</p>
-  <img src="./github/galeria2.jpg" alt="galeria2" />
+  <img src="./github/galeria2.JPG" alt="galeria2" />
   
   <p>Rota Users - signUp</p>
-  <img src="./github/galeria3.jpg" alt="galeria3" />
+  <img src="./github/galeria3.JPG" alt="galeria3" />
   
   <p>Rota Users - Login</p>
-  <img src="./github/galeria4.jpg" alt="galeria4" />
+  <img src="./github/galeria4.JPG" alt="galeria4" />
   
   
   <h2 id='nota'>📃 Notas</h2>
