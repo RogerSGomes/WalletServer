@@ -11,11 +11,12 @@
     
   <h2 id='sobre'>💬 Sobre</h2>
   <p>Este é o server responsável pelo CRUD da aplicação Wallet desenvolvida em React.js</p>
-  <p>A aplicação é fictícia e simula um software de gestão financeira, com ele será possível visualisar e realizar transações, saldo, e muito mais!</p>
+  <p>A aplicação é fictícia e simula um software de gestão financeira. Este projeto é o limiar para a conclusão do curso de desenvolvimento em React disponibilizado pela plataforma GamaAcademy.</p>
   
   <h2 id='requisitos'>🧩 Pré-requisitos para rodar a aplicação</h2>
-  <p>Tenha certeza de que seu dispositivo tem o xampp instalado, senão instale-o no link:</p>
+  <p>Tenha certeza de que seu dispositivo tem o xampp instalado, se não houver instale-o no link:</p>
   <ul><a href="https://www.apachefriends.org/pt_br/download.html">https://www.apachefriends.org/pt_br/download.html</a></ul>
+  <p>É necessário a instalação do PHP, Apache e MySQL.</p>
   <p>Após a instalação do xampp, siga os seguintes passos para importar o banco de dados:</p>
   <ul>
     <li>Abra o XAMPP Control Panel em seu dispositivo;</li>
@@ -31,7 +32,7 @@
   <h2 id='instalacao'>🚀 Rodando a Aplicação</h2>
   
   <p>Depois de configurar o Banco de dados em sua máquina, mova a pasta raiz do projeto para a pasta "htdocs" do Xampp, localizada por padrão em "C:\xampp\htdocs\"</p>
-  <p>Tudo pronto! O projeto já estará rodando no localhost de seu dispositivo, agora é só aproveitar e utilizar a API.</p>
+  <p>Tudo pronto! O projeto já estará rodando no localhost de seu dispositivo, agora é só aproveitar e utilizar a API. Recomendo o uso do Insomnia para a visualização das requisições feitas à API.</p>
   
   <h2 id='galeria'>🖼 Galeria</h2>
   <p>Rota Avatar - Index</p>
