@@ -28,7 +28,7 @@ if (isset($_BODY)) {
             $avatar_id
         ) {
             if ($password === $c_password) {
-                $sql = "SELECT * FROM wallet_user WHERE `user_name` = '$name' OR user_nickname = '$nickname'";
+                $sql = "SELECT * FROM wallet_user WHERE `user_name` = '$name' OR user_nickname = '$nickname' OR user_email = '$email'";
                 $result = $connect->query($sql);
 
                 if ($result->num_rows > 0) {
