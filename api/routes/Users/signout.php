@@ -17,31 +17,24 @@ if (isset($_BODY)) {
                     $sql = "UPDATE wallet_user SET user_token = NULL WHERE `user_id` = $user_id";
 
                     if($connect->query($sql)) {
-                        $response["status"] = 200;
-                        $response["response"] = "Sessão finalizada";
+                        $response["data"] = "Sessão finalizada";
                     } else {
-                        $response["status"] = 400;
-                        $response["response"] = "Algo deu errado";
+                        $response["data"] = "Algo deu errado";
                     }
                 } else {
-                    $response["status"] = 404;
-                    $response["response"] = "Usuário não encontrado";
+                    $response["data"] = "Usuário não encontrado";
                 }
             } else {
-                $response["status"] = 400;
-                $response["response"] = "Não foi possível sair, sem confirmação do usuário";
+                $response["data"] = "Não foi possível sair, sem confirmação do usuário";
             }
         } else {
-            $response["status"] = 403;
-            $response["response"] = "Informe o ID do usuário e sua confirmação para sair";
+            $response["data"] = "Informe o ID do usuário e sua confirmação para sair";
         }
     } else {
-        $response["status"] = 400;
-        $response["response"] = "Requisição incoerente";
+        $response["data"] = "Requisição incoerente";
     }
 } else {
-    $response["status"] = 400;
-    $response["response"] = "Este end-point não suporta requisições pelo método GET";
+    $response["data"] = "Este end-point não suporta requisições pelo método GET";
 }
 
 echo(json_encode($response));

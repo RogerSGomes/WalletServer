@@ -33,28 +33,22 @@ if (isset($_BODY)) {
                             "token" => $token
                         ];
                     } else {
-                        $response["status"] = 400;
-                        $response["response"] = "Não foi possível iniciar sessão";
+                        $response["data"] = "Não foi possível iniciar sessão";
                     }
                 } else {
-                    $response["status"] = 400;
-                    $response["response"] = "Usuário e/ou senha incorretos";
+                    $response["data"] = "Usuário e/ou senha incorretos";
                 }
             } else {
-                $response["status"] = 404;
-                $response["response"] = "Usuário não encontrado";
+                $response["data"] = "Usuário não encontrado";
             }
         } else {
-            $response["status"] = 403;
-            $response["response"] = "Preencha todos os campos";
+            $response["data"] = "Preencha todos os campos";
         }
     } else {
-        $response["status"] = 400;
-        $response["response"] = "Requisição incoerente";
+        $response["data"] = "Requisição incoerente";
     }
 } else {
-    $response["status"] = 400;
-    $response["response"] = "Este end-point não suporta requisições pelo método GET";
+    $response["data"] = "Este end-point não suporta requisições pelo método GET";
 }
 
 echo (json_encode($response));

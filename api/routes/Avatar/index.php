@@ -13,11 +13,9 @@ if ($result -> num_rows > 0) {
         ];
     }
 
-    $response["status"] = 200;
     $response["response"] = $avatar_data;
 } else {
-    $response["status"] = 404;
-    $response["response"] = "Nenhum avatar encontrado";
+    $response["data"] = "Nenhum avatar encontrado";
 }
 
 echo(json_encode($response));

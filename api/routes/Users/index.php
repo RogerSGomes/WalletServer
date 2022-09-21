@@ -15,11 +15,9 @@ if ($result -> num_rows > 0) {
         ];
     }
 
-    $response["status"] = 200;
-    $response["response"] = $user_data;
+    $response["data"] = $user_data;
 } else {
-    $response["status"] = 404;
-    $response["response"] = "Nenhum usuário encontrado";
+    $response["data"] = "Nenhum usuário encontrado";
 }
 
 echo(json_encode($response));

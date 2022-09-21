@@ -32,8 +32,7 @@ if (isset($_BODY)) {
                 $result = $connect->query($sql);
 
                 if ($result->num_rows > 0) {
-                    $response["status"] = 403;
-                    $response["response"] = "Usuário já existe";
+                    $response["data"] = "Usuário já existe";
                 } else {
                     $encrypted_password = $password;
                     for ($i = 0; $i < 2; $i ++) {
@@ -42,28 +41,22 @@ if (isset($_BODY)) {
                     
                     $sql = "INSERT INTO wallet_user(`user_name`, user_nickname, user_email, user_password, user_avatar_id) VALUES ('$name', '$nickname', '$email', '$encrypted_password', $avatar_id)";
                     if ($connect->query($sql) === TRUE) {
-                        $response["status"] = 200;
-                        $response["response"] = "Usuário cadastrado com sucesso";
+                        $response["data"] = "Usuário cadastrado com sucesso";
                     } else {
-                        $response["status"] = 400;
-                        $response["response"] = "Não foi possível cadastrar este usuário";
+                        $response["data"] = "Não foi possível cadastrar este usuário";
                     }
                 }
             } else {
-                $response["status"] = 403;
-                $response["response"] = "Senhas não correspondem";
+                $response["data"] = "Senhas não correspondem";
             }
         } else {
-            $response["status"] = 403;
-            $response["response"] = "Preencha todos os campos";
+            $response["data"] = "Preencha todos os campos";
         }
     } else {
-        $response["status"] = 400;
-        $response["response"] = "Requisição incoerente";
+        $response["data"] = "Requisição incoerente";
     }
 } else {
-    $response["status"] = 400;
-    $response["response"] = "Este end-point não suporta requisições pelo método GET";
+    $response["data"] = "Este end-point não suporta requisições pelo método GET";
 }
 
 echo(json_encode($response));

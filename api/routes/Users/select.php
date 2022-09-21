@@ -21,23 +21,18 @@ if (isset($_BODY)) {
                     ];
                 }
             
-                $response["status"] = 200;
-                $response["response"] = $user_data;
+                $response["data"] = $user_data;
             } else {
-                $response["status"] = 404;
-                $response["response"] = "Usuário não encontrado";
+                $response["data"] = "Usuário não encontrado";
             }
         } else {
-            $response["status"] = 403;
-            $response["response"] = "Informe o ID do usuário";
+            $response["data"] = "Informe o ID do usuário";
         }
     } else {
-        $response["status"] = 400;
-        $response["response"] = "Requisição incoerente";
+        $response["data"] = "Requisição incoerente";
     }
 } else {
-    $response["status"] = 400;
-    $response["response"] = "Este end-point não suporta requisições pelo método GET";
+    $response["data"] = "Este end-point não suporta requisições pelo método GET";
 }
 
 echo (json_encode($response));
