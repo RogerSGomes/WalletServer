@@ -13,7 +13,7 @@ if (isset($_BODY)) {
 
             if ($result->num_rows > 0) {
                 while($user = $result -> fetch_assoc()) {
-                    $user_data[] = [
+                    $user_data = [
                         "id" => intval($user["user_id"]),
                         "avatar_id" => intval($user["user_avatar_id"]),
                         "name" => $user["user_name"],
