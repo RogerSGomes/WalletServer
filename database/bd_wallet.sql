@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14-Set-2022 às 02:06
+-- Tempo de geração: 21-Set-2022 às 02:36
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -45,6 +45,24 @@ INSERT INTO `wallet_avatar` (`avatar_id`, `avatar_url`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `wallet_transaction`
+--
+
+CREATE TABLE `wallet_transaction` (
+  `transaction_id` int(11) NOT NULL,
+  `transaction_user_id` int(11) NOT NULL,
+  `transaction_type` varchar(15) NOT NULL,
+  `transaction_date` date NOT NULL,
+  `transaction_cost` varchar(20) NOT NULL,
+  `transaction_payment` varchar(100) NOT NULL,
+  `transaction_origin` varchar(15) NOT NULL,
+  `transaction_description` varchar(30) DEFAULT NULL,
+  `transaction_adress` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `wallet_user`
 --
 
@@ -69,6 +87,13 @@ ALTER TABLE `wallet_avatar`
   ADD PRIMARY KEY (`avatar_id`);
 
 --
+-- Índices para tabela `wallet_transaction`
+--
+ALTER TABLE `wallet_transaction`
+  ADD PRIMARY KEY (`transaction_id`),
+  ADD KEY `transaction_user_id` (`transaction_user_id`);
+
+--
 -- Índices para tabela `wallet_user`
 --
 ALTER TABLE `wallet_user`
@@ -86,6 +111,12 @@ ALTER TABLE `wallet_avatar`
   MODIFY `avatar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT de tabela `wallet_transaction`
+--
+ALTER TABLE `wallet_transaction`
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `wallet_user`
 --
 ALTER TABLE `wallet_user`
@@ -94,6 +125,12 @@ ALTER TABLE `wallet_user`
 --
 -- Restrições para despejos de tabelas
 --
+
+--
+-- Limitadores para a tabela `wallet_transaction`
+--
+ALTER TABLE `wallet_transaction`
+  ADD CONSTRAINT `wallet_transaction_ibfk_1` FOREIGN KEY (`transaction_user_id`) REFERENCES `wallet_user` (`user_id`);
 
 --
 -- Limitadores para a tabela `wallet_user`
