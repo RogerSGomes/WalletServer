@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21-Set-2022 às 02:36
+-- Tempo de geração: 22-Set-2022 às 00:10
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -77,6 +77,13 @@ CREATE TABLE `wallet_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Extraindo dados da tabela `wallet_user`
+--
+
+INSERT INTO `wallet_user` (`user_id`, `user_avatar_id`, `user_name`, `user_nickname`, `user_email`, `user_password`, `user_token`) VALUES
+(1, 4, 'Roger', 'RogerSilva', 'example@gmail.com', '19288164da2fc5415d3cbbeb9bc5868e', NULL);
+
+--
 -- Índices para tabelas despejadas
 --
 
@@ -120,7 +127,7 @@ ALTER TABLE `wallet_transaction`
 -- AUTO_INCREMENT de tabela `wallet_user`
 --
 ALTER TABLE `wallet_user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restrições para despejos de tabelas
