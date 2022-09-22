@@ -18,30 +18,30 @@ if (isset($_BODY)) {
 
                     if($connect->query($sql)) {
                         http_response_code(200);
-                        $response["data"] = "Sessão finalizada";
+                        $response = "Sessão finalizada";
                     } else {
                         http_response_code(500);
-                        $response["data"] = "Algo deu errado";
+                        $response = "Algo deu errado";
                     }
                 } else {
                     http_response_code(404);
-                    $response["data"] = "Usuário não encontrado";
+                    $response = "Usuário não encontrado";
                 }
             } else {
                 http_response_code(403);
-                $response["data"] = "Não foi possível sair, sem confirmação do usuário";
+                $response = "Não foi possível sair, sem confirmação do usuário";
             }
         } else {
             http_response_code(400);
-            $response["data"] = "Informe o ID do usuário e sua confirmação para sair";
+            $response = "Informe o ID do usuário e sua confirmação para sair";
         }
     } else {
         http_response_code(400);
-        $response["data"] = "Requisição incoerente";
+        $response = "Requisição incoerente";
     }
 } else {
     http_response_code(400);
-    $response["data"] = "Este end-point não suporta requisições pelo método GET";
+    $response = "Este end-point não suporta requisições pelo método GET";
 }
 
 echo(json_encode($response));

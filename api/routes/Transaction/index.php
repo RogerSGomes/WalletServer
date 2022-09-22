@@ -29,18 +29,18 @@ if (isset($_GET["id"])) {
                 ];
             }
             http_response_code(200);
-            $response["data"] = $transaction_data;
+            $response = $transaction_data;
         } else {
             http_response_code(404);
-            $response["data"] = "Nenhuma transação encontrada para este usuário";
+            $response = "Nenhuma transação encontrada para este usuário";
         }
     } else {
         http_response_code(404);
-        $response["data"] = "Usuário não encontrado";
+        $response = "Usuário não encontrado";
     }
 } else {
     http_response_code(400);
-    $response["data"] = "Este end-point não suporta requisições pelo método GET";
+    $response = "Este end-point não suporta requisições pelo método GET";
 }
 
 

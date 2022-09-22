@@ -25,7 +25,7 @@ if (isset($_BODY)) {
 
                     if ($connect->query($sql) === TRUE) {
                         http_response_code(200);
-                        $response["data"] = [
+                        $response = [
                             "id" => intval($user["user_id"]),
                             "name" => $user["user_name"],
                             "nickname" => $user["user_nickname"],
@@ -34,27 +34,27 @@ if (isset($_BODY)) {
                         ];
                     } else {
                         http_response_code(500);
-                        $response["data"] = "Não foi possível iniciar sessão";
+                        $response = "Não foi possível iniciar sessão";
                     }
                 } else {
                     http_response_code(400);
-                    $response["data"] = "Usuário e/ou senha incorretos";
+                    $response = "Usuário e/ou senha incorretos";
                 }
             } else {
                 http_response_code(404);
-                $response["data"] = "Usuário não encontrado";
+                $response = "Usuário não encontrado";
             }
         } else {
             http_response_code(400);
-            $response["data"] = "Preencha todos os campos";
+            $response = "Preencha todos os campos";
         }
     } else {
         http_response_code(400);
-        $response["data"] = "Requisição incoerente";
+        $response = "Requisição incoerente";
     }
 } else {
     http_response_code(400);
-    $response["data"] = "Este end-point não suporta requisições pelo método GET";
+    $response = "Este end-point não suporta requisições pelo método GET";
 }
 
 echo (json_encode($response));

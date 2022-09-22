@@ -14,10 +14,10 @@ if ($result -> num_rows > 0) {
     }
 
     http_response_code(200);
-    $response["data"] = $avatar_data;
+    $response = $avatar_data;
 } else {
     http_response_code(404);
-    $response["data"] = "Nenhum avatar encontrado";
+    $response = "Nenhum avatar encontrado";
 }
 
 echo(json_encode($response));

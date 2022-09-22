@@ -22,22 +22,22 @@ if (isset($_BODY)) {
                 }
             
                 http_response_code(200);
-                $response["data"] = $user_data;
+                $response = $user_data;
             } else {
                 http_response_code(404);
-                $response["data"] = "Usuário não encontrado";
+                $response = "Usuário não encontrado";
             }
         } else {
             http_response_code(400);
-            $response["data"] = "Informe o ID do usuário";
+            $response = "Informe o ID do usuário";
         }
     } else {
         http_response_code(400);
-        $response["data"] = "Requisição incoerente";
+        $response = "Requisição incoerente";
     }
 } else {
     http_response_code(400);
-    $response["data"] = "Este end-point não suporta requisições pelo método GET";
+    $response = "Este end-point não suporta requisições pelo método GET";
 }
 
 echo (json_encode($response));

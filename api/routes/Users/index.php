@@ -16,10 +16,10 @@ if ($result -> num_rows > 0) {
     }
 
     http_response_code(200);
-    $response["data"] = $user_data;
+    $response = $user_data;
 } else {
     http_response_code(404);
-    $response["data"] = "Nenhum usuário encontrado";
+    $response = "Nenhum usuário encontrado";
 }
 
 echo(json_encode($response));

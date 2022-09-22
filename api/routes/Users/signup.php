@@ -32,7 +32,8 @@ if (isset($_BODY)) {
                 $result = $connect->query($sql);
 
                 if ($result->num_rows > 0) {
-                    $response["data"] = "Usuário já existe";
+                    http_response_code(400);
+                    $response = "Usuário já existe";
                 } else {
                     $encrypted_password = $password;
                     for ($i = 0; $i < 2; $i ++) {
@@ -42,27 +43,27 @@ if (isset($_BODY)) {
                     $sql = "INSERT INTO wallet_user(`user_name`, user_nickname, user_email, user_password, user_avatar_id) VALUES ('$name', '$nickname', '$email', '$encrypted_password', $avatar_id)";
                     if ($connect->query($sql) === TRUE) {
                         http_response_code(200);
-                        $response["data"] = "Usuário cadastrado com sucesso";
+                        $response = "Usuário cadastrado com sucesso";
                     } else {
                         http_response_code(500);
-                        $response["data"] = "Não foi possível cadastrar este usuário";
+                        $response = "Não foi possível cadastrar este usuário";
                     }
                 }
             } else {
                 http_response_code(400);
-                $response["data"] = "Senhas não correspondem";
+                $response = "Senhas não correspondem";
             }
         } else {
             http_response_code(400);
-            $response["data"] = "Preencha todos os campos";
+            $response = "Preencha todos os campos";
         }
     } else {
         http_response_code(400);
-        $response["data"] = "Requisição incoerente";
+        $response = "Requisição incoerente";
     }
 } else {
     http_response_code(400);
-    $response["data"] = "Este end-point não suporta requisições pelo método GET";
+    $response = "Este end-point não suporta requisições pelo método GET";
 }
 
 echo(json_encode($response));

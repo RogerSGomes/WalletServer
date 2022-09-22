@@ -16,26 +16,26 @@ if (isset($_BODY)) {
 
                 if  ($connect -> query($sql) === TRUE) {
                     http_response_code(200);
-                    $response["data"] = "Transação excluída";
+                    $response = "Transação excluída";
                 } else {
                     http_response_code(500);
-                    $response["data"] = "Algo deu errado";
+                    $response = "Algo deu errado";
                 }
             } else {
                 http_response_code(404);
-                $response["data"] = "Transação não encontrada";
+                $response = "Transação não encontrada";
             }
         } else {
             http_response_code(400);
-            $response["data"] = "Informe o ID da transação a ser excluída";
+            $response = "Informe o ID da transação a ser excluída";
         }
     } else {
         http_response_code(400);
-        $response["data"] = "Requisição incoerente";
+        $response = "Requisição incoerente";
     }
 } else {
     http_response_code(400);
-    $response["data"] = "Este end-point não suporta requisições pelo método GET";
+    $response = "Este end-point não suporta requisições pelo método GET";
 }
 
 echo (json_encode($response));
