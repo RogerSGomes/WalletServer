@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22-Set-2022 às 00:10
+-- Tempo de geração: 23-Set-2022 às 00:43
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -37,10 +37,10 @@ CREATE TABLE `wallet_avatar` (
 --
 
 INSERT INTO `wallet_avatar` (`avatar_id`, `avatar_url`) VALUES
-(1, './assets/avatar-1.png'),
-(2, './assets/avatar-2.png'),
-(3, './assets/avatar-3.png'),
-(4, './assets/avatar-4.png');
+(1, '../../images/avatar-1.png'),
+(2, '../../images/avatar-2.png'),
+(3, '../../images/avatar-3.png'),
+(4, '../../images/avatar-4.png');
 
 -- --------------------------------------------------------
 
@@ -59,6 +59,16 @@ CREATE TABLE `wallet_transaction` (
   `transaction_description` varchar(30) DEFAULT NULL,
   `transaction_adress` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `wallet_transaction`
+--
+
+INSERT INTO `wallet_transaction` (`transaction_id`, `transaction_user_id`, `transaction_type`, `transaction_date`, `transaction_cost`, `transaction_payment`, `transaction_origin`, `transaction_description`, `transaction_adress`) VALUES
+(8, 1, 'Gasto', '2022-09-30', 'testeteste', 'testeteste', 'testeteste', 'testeteste', 'testeteste'),
+(9, 1, 'Gasto', '2022-09-01', 'R$ 99,90', 'Dinheiro', 'Internacional', 'Remédio dos filhos', ''),
+(10, 1, 'Gasto', '2022-08-29', 'R$ 99,90', 'PIX', 'Internacional', 'Remédio', ''),
+(11, 1, 'Gasto', '2022-09-09', 'R$ 99,90', 'Cartão de débito', 'Nacional', 'Teste', '');
 
 -- --------------------------------------------------------
 
@@ -81,7 +91,7 @@ CREATE TABLE `wallet_user` (
 --
 
 INSERT INTO `wallet_user` (`user_id`, `user_avatar_id`, `user_name`, `user_nickname`, `user_email`, `user_password`, `user_token`) VALUES
-(1, 4, 'Roger', 'RogerSilva', 'example@gmail.com', '19288164da2fc5415d3cbbeb9bc5868e', NULL);
+(1, 4, 'Roger', 'RogerSilva', 'example@gmail.com', '19288164da2fc5415d3cbbeb9bc5868e', '9ec86d4c4a3d7d61426fca2e5c82f243wallet2022260214');
 
 --
 -- Índices para tabelas despejadas
@@ -121,7 +131,7 @@ ALTER TABLE `wallet_avatar`
 -- AUTO_INCREMENT de tabela `wallet_transaction`
 --
 ALTER TABLE `wallet_transaction`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `wallet_user`
