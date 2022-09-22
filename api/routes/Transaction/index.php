@@ -14,6 +14,9 @@ if (isset($_GET["id"])) {
         
         if ($result -> num_rows > 0) {
             while($transaction = $result -> fetch_assoc()) {
+                $date = explode("-", $transaction["transaction_date"]);
+                $transaction["transaction_date"] = $date[2]."/".$date[1]."/".$date[0];
+
                 $transaction_data[] = [
                     "id" => intval($transaction["transaction_id"]),
                     "type" => $transaction["transaction_type"],
